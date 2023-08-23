@@ -1,20 +1,21 @@
 import React from 'react'
 import { Button, FormControl} from 'react-bootstrap';
 
-const Input = () => {
+const Input = (props) => {
     return (
-        <div className='flex justify-content-center'>
+        <div className='d-flex justify-content-center flex-row align-items-center'>
             <div className='container'>
                 <FormControl
-                    
                     type='text'
-                    placeholder='Enter the location'
+                    placeholder='Enter the cityname'
+                    value={props.value}
+                    onChange={props.onChange}
                 />
             </div>
             <div>
                 <Button
                     variant='primary'
-                    className='ms-3 mt-2'
+                    onChange={props.onClick}
                 >
                     Search
                 </Button>

@@ -5,12 +5,13 @@ import Input from "./components/Input";
 function App() {
   return (
     <>
-    <div className="container mt-4 d-flex justify-content-center align-items-center flex-column">
-    <h3> Welcome to Weathermate &#128591;</h3>
-      <Input/>
-      <br />
-      <CardPage/>
-    </div>
+      <div className="container mt-3 d-flex justify-content-center align-items-center flex-column">
+        <h3> Welcome to Weathermate &#128591;</h3>
+        <br />
+        <Input />
+        <br />
+        <CardPage />
+      </div>
     </>
   );
 }
