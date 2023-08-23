@@ -1,19 +1,29 @@
 import Card from 'react-bootstrap/Card';
-
+import { useWeatherContext } from '../context/weatherContext';
 const CardPage = () => {
+
+    const weather = useWeatherContext();
     return (
         <div>
             <Card style={{ width: '20rem' }}>
-                <Card.Img variant="top" src="holder.js/100px180" />
+                <Card.Header style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+
+                    <Card.Img style={{ width: '40%' }}
+                        variant="top"
+                        src={weather?.data?.current?.condition?.icon}
+                    />
+                </Card.Header>
                 <Card.Body>
-                    <Card.Title>Card Title</Card.Title>
-                    <Card.Text>
-                        Some quick example text to build
-                    </Card.Text>
+                    <Card.Title>Weather Condition: {weather?.data?.current?.condition?.text}</Card.Title>
+                    <Card.Text><strong>Region: </strong>{weather?.data?.location?.region}</Card.Text>
+                    <Card.Text><strong>Country: </strong>{weather?.data?.location?.country}</Card.Text>
+                    <Card.Text><strong>Temperature: </strong>{weather?.data?.current?.temp_c} °C</Card.Text>
+                    <Card.Text><strong>Humidity: </strong> {weather?.data?.current?.humidity}</Card.Text>
+                    <Card.Text><strong>Wind: </strong>{weather?.data?.current?.wind_kph} Km/h</Card.Text>
                 </Card.Body>
             </Card>
         </div>
     )
 }
 
-export default CardPage
+export default CardPage;

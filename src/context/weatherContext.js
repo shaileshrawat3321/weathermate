@@ -11,10 +11,14 @@ const WeatherProvider = ({ children }) => {
   const [searchCity, setSearchCity] = useState(null);
 
   const fetchApiData = async () => {
-    // fetching the data of the user input city
-    const response = await weatherDetailsForCity(searchCity);
-    // setting the searched city details into setData function
-    setData(response);
+    try {
+      // <---- fetching the data of the user input city --->
+      const response = await weatherDetailsForCity(searchCity);
+      // <---- setting the searched city details into setData function ---->
+      setData(response);
+    } catch (err) {
+      throw new Error("City not found");
+    }
   };
 
   return (
