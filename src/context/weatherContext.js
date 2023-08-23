@@ -9,15 +9,22 @@ export const useWeatherContext = () => {
 const WeatherProvider = ({ children }) => {
   const [data, setData] = useState(null);
   const [searchCity, setSearchCity] = useState(null);
+  const [mode, setMode] = useState("light");
 
   const fetchApiData = async () => {
-    try {
-      // <---- fetching the data of the user input city --->
-      const response = await weatherDetailsForCity(searchCity);
-      // <---- setting the searched city details into setData function ---->
-      setData(response);
-    } catch (err) {
-      throw new Error("City not found");
+    // <---- fetching the data of the user input city --->
+    const response = await weatherDetailsForCity(searchCity);
+    // <---- setting the searched city details into setData function ---->
+    setData(response);
+  };
+
+  const toggleTheme = () => {
+    if (mode === "light") {
+      setMode("dark");
+      document.body.style.backgroundColor = "#27374D";
+    } else {
+      setMode("light");
+      document.body.style.backgroundColor = "#E8DFCA";
     }
   };
 
@@ -26,8 +33,10 @@ const WeatherProvider = ({ children }) => {
       value={{
         data,
         searchCity,
+        mode,
         setSearchCity,
         fetchApiData,
+        toggleTheme,
       }}
     >
       {children}

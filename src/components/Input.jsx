@@ -16,7 +16,7 @@ const Input = () => {
             </div>
             <div>
                 <Button
-                    variant='primary'
+                    variant={`${weather.mode === 'light' ? 'secondary' : 'primary'}`}
                     onClick={weather.fetchApiData}
                 >
                     Search

@@ -5,8 +5,14 @@ const CardPage = () => {
     const weather = useWeatherContext();
     return (
         <div>
-            <Card style={{ width: '20rem' }}>
-                <Card.Header style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <Card style={{ width: '20rem', backgroundColor: `${weather.mode === 'light' ? '#F5EFE6' : '#526D82'}`, 
+                color: `${weather.mode === 'light' ? 'black' : 'white'}`}}>
+                <Card.Header style={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+
+                }}>
 
                     <Card.Img style={{ width: '40%' }}
                         variant="top"
@@ -22,7 +28,7 @@ const CardPage = () => {
                     <Card.Text><strong>Wind: </strong>{weather?.data?.current?.wind_kph} Km/h</Card.Text>
                 </Card.Body>
             </Card>
-        </div>
+        </div >
     )
 }
 
