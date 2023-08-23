@@ -9,7 +9,7 @@ const Nav = () => {
         <div>
             <Navbar bg={`${mode}`} data-bs-theme={`${mode}`}>
                 <Container>
-                    <Navbar.Brand href="#home">Weathermate</Navbar.Brand>
+                    <Navbar.Brand ><b>W</b>eather<b>M</b>ate</Navbar.Brand>
 
                     <Form>
                         <Form.Check
